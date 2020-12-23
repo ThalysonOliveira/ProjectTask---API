@@ -19,7 +19,7 @@ class App {
   }
 
   database() {
-    mongoose.connect('mongodb://localhost/container', {
+    mongoose.connect('mongodb://localhost/appuser', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
