@@ -1,5 +1,4 @@
 import User from '../models/User';
-import mailer from '../../email/mailer';
 
 class UserController {
   async store(req, res) {
