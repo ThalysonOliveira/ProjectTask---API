@@ -65,6 +65,32 @@ class SessionCotnroller {
 
     return res.json({ message: 'Verifique seu email' });
   }
+
+  async reset(req, res) {
+    const { email, token, password } = req.body;
+
+    const user = await User.findOne({ email }).select(
+      '+passwordResetToken passwordResetExpires'
+    );
+
+    if (!user) {
+      return res.status(400).json({ error: 'Email incorreto' });
+    }
+
+    if (token !== user.passwordResetToken) {
+      return res.status(400).json({ error: 'Token invalido' });
+    }
+
+    const now = new Date();
+
+    if (now > user.passwordResetExpires) {
+      return res.status(400).json({ error: 'Token expirado, gere um novo' });
+    }
+
+    user.password = password;
+    await user.save();
+    return res.json({ message: 'Senha redefinida com sucesso' });
+  }
 }
 
 export default new SessionCotnroller();
