@@ -1,4 +1,5 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import routes from './routes';
 
 class App {
@@ -6,6 +7,7 @@ class App {
     this.server = express();
     this.middlewares();
     this.routes();
+    this.database();
   }
 
   middlewares() {
@@ -14,6 +16,13 @@ class App {
 
   routes() {
     this.server.use(routes);
+  }
+
+  database() {
+    mongoose.connect('mongodb://localhost/container', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
   }
 }
 
