@@ -12,6 +12,6 @@ routes.post('/user', UserController.store);
 routes.post('/session', SessionCotnroller.store);
 
 routes.use(midConfig);
-routes.post('/user', UserController.update);
+routes.put('/user', UserController.update);
 
 export default routes;
