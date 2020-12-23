@@ -4,6 +4,6 @@ import UserController from './app/controllers/UserController';
 
 const routes = new Router();
 
-routes.get('/', UserController.store);
+routes.post('/user', UserController.store);
 
 export default routes;
