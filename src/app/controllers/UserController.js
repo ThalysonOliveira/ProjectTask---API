@@ -1,4 +1,5 @@
 import User from '../models/User';
+import mailer from '../../email/mailer';
 
 class UserController {
   async store(req, res) {
@@ -19,9 +20,7 @@ class UserController {
     return res.status(201).json(user);
   }
 
-  async update(req, res) {
-    return res.json({ ok: true });
-  }
+  async update(req, res) {}
 }
 
 export default new UserController();
