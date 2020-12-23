@@ -1,5 +1,7 @@
 import User from '../models/User';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import auth from '../../config/auth';
 
 class SessionCotnroller {
   async store(req, res) {
@@ -14,6 +16,18 @@ class SessionCotnroller {
     if (!(await bcrypt.compare(password, user.password))) {
       return res.status(400).json({ error: 'Senha incorreta' });
     }
+
+    const { _id, name } = user;
+    return res.json({
+      user: {
+        _id,
+        name,
+        email,
+      },
+      token: jwt.sign({ _id }, auth.secret, {
+        expiresIn: '7d',
+      }),
+    });
   }
 }
 
