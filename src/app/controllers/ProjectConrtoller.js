@@ -1,4 +1,5 @@
 import Project from '../models/Project';
+import Task from '../models/Task';
 
 class ProjectController {
   async list(req, res) {
@@ -13,12 +14,20 @@ class ProjectController {
   }
 
   async store(req, res) {
-    const { title, description } = req.body;
+    const { title, description, tasks } = req.body;
     const project = await Project.create({
       title,
       description,
       user: req.user_id,
     });
+
+    tasks.map((task) => {
+      const projectTask = new Task({ ...task, project: project._id });
+
+      projectTask.save().then((task) => project.tasks.push(tasks));
+    });
+
+    await project.save();
 
     return res.status(201).json(project);
   }
