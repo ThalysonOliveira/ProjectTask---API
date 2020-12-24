@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import UserController from './app/controllers/UserController';
 import SessionCotnroller from './app/controllers/SessionController';
+import ProjectController from './app/controllers/ProjectConrtoller';
 
 import midConfig from './middlewares/midConfig';
 
@@ -15,5 +16,11 @@ routes.post('/reset_password', SessionCotnroller.reset);
 
 routes.use(midConfig);
 routes.put('/user', UserController.update);
+
+routes.get('/', ProjectController.index);
+routes.get('/:projectid', ProjectController.list);
+routes.post('/', ProjectController.store);
+routes.put('/projectid', ProjectController.index);
+routes.delete('/projectid', ProjectController.delete);
 
 export default routes;
