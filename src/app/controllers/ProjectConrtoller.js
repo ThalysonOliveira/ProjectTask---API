@@ -1,3 +1,5 @@
+import Project from '../models/Project';
+
 class ProjectController {
   async list(req, res) {
     return res.json({ ok: true });
@@ -8,7 +10,13 @@ class ProjectController {
   }
 
   async store(req, res) {
-    return res.json({ ok: true });
+    const { title, description } = req.body;
+    const project = await Project.create({
+      title,
+      description,
+    });
+
+    return res.status(201).json(project);
   }
 
   async update(req, res) {
