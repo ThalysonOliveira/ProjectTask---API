@@ -28,7 +28,9 @@ class ProjectController {
   }
 
   async delete(req, res) {
-    return res.json({ ok: true });
+    const { projectId } = req.params;
+    await Project.findByIdAndRemove({ _id: projectId });
+    return res.json({ message: 'Projeto exluido com sucesso' });
   }
 }
 
