@@ -17,7 +17,7 @@ routes.post('/reset_password', SessionCotnroller.reset);
 routes.use(midConfig);
 routes.put('/user', UserController.update);
 
-routes.get('/', ProjectController.index);
+routes.get('/project', ProjectController.index);
 routes.get('/:projectid', ProjectController.list);
 routes.post('/project', ProjectController.store);
 routes.put('/:projectid', ProjectController.update);
