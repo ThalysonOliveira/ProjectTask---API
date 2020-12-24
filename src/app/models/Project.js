@@ -13,6 +13,7 @@ const ProjectSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'User',
+    require: true,
   },
   tasks: [
     {
