@@ -6,7 +6,7 @@ class ProjectController {
   }
 
   async index(req, res) {
-    const project = await Project.find();
+    const project = await Project.find().populate('user');
     return res.json(project);
   }
 
