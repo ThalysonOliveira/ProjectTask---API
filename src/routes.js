@@ -19,7 +19,7 @@ routes.put('/user', UserController.update);
 
 routes.get('/', ProjectController.index);
 routes.get('/:projectid', ProjectController.list);
-routes.post('/', ProjectController.store);
+routes.post('/project', ProjectController.store);
 routes.put('/:projectid', ProjectController.update);
 routes.delete('/:projectid', ProjectController.delete);
 
