@@ -18,9 +18,9 @@ routes.use(midConfig);
 routes.put('/user', UserController.update);
 
 routes.get('/project', ProjectController.index);
-routes.get('/:projectid', ProjectController.list);
+routes.get('/:projectId', ProjectController.list);
 routes.post('/project', ProjectController.store);
-routes.put('/:projectid', ProjectController.update);
-routes.delete('/:projectid', ProjectController.delete);
+routes.put('/:projectId', ProjectController.update);
+routes.delete('/:projectId', ProjectController.delete);
 
 export default routes;
