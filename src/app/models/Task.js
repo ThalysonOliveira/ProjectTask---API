@@ -8,10 +8,17 @@ const TaskSchema = new Schema({
   project: {
     type: Schema.Types.ObjectId,
     ref: 'Project',
+    require: true,
   },
-  user: {
+  assingnedTo: {
     type: Schema.Types.ObjectId,
     ref: 'User',
+    require: true,
+  },
+  completed: {
+    type: Boolean,
+    require: true,
+    default: Date.now,
   },
   createdAt: {
     type: Date,
