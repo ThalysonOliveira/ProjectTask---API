@@ -6,7 +6,8 @@ class ProjectController {
   }
 
   async index(req, res) {
-    return res.json({ ok: true });
+    const project = await Project.find();
+    return res.json(project);
   }
 
   async store(req, res) {
@@ -14,6 +15,7 @@ class ProjectController {
     const project = await Project.create({
       title,
       description,
+      user: req.user_id,
     });
 
     return res.status(201).json(project);
