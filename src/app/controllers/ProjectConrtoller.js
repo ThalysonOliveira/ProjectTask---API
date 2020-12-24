@@ -2,7 +2,9 @@ import Project from '../models/Project';
 
 class ProjectController {
   async list(req, res) {
-    return res.json({ ok: true });
+    const { projectId } = req.params;
+    const project = await Project.findById({ _id: projectId });
+    return res.json(project);
   }
 
   async index(req, res) {
