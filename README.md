@@ -34,7 +34,7 @@ Esse projeto foi desenvolvido utilizando a seguinte tecnologia:
 <a id="como-usar"></a>
 ## :zap: Como usar
 
-- Faça um clone desse repositório: `git clone https://github.com/ThalysonOliveira/UserProject-API.git
+- Faça um clone desse repositório: `git clone https://github.com/ThalysonOliveira/UserProject-API.git`
 - Instale as dependências: `yarn`
 - Inicie seu banco MongoDB
 - Inicie a aplicação:
