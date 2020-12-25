@@ -15,7 +15,6 @@ routes.post('/forgot_password', SessionCotnroller.recover);
 routes.post('/reset_password', SessionCotnroller.reset);
 
 routes.use(midConfig);
-routes.put('/user', UserController.update);
 
 routes.get('/project', ProjectController.index);
 routes.get('/:projectId', ProjectController.list);
