@@ -18,8 +18,6 @@ class UserController {
 
     return res.status(201).json(user);
   }
-
-  async update(req, res) {}
 }
 
 export default new UserController();
