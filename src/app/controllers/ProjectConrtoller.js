@@ -37,7 +37,35 @@ class ProjectController {
   }
 
   async update(req, res) {
-    return res.json({ ok: true });
+    const { title, description, tasks } = req.body;
+    const { projectId } = req.params;
+    const project = await Project.findByIdAndUpdate(
+      { _id: projectId },
+      {
+        title,
+        description,
+      },
+      {
+        new: true,
+      }
+    );
+
+    project.tasks = [];
+    await Task.remove({ project: project._id });
+
+    await Promise.all(
+      tasks.map(async (task) => {
+        const projectTask = new Task({ ...task, project: project._id });
+
+        await projectTask.save();
+
+        project.tasks.push(projectTask);
+      })
+    );
+
+    await project.save();
+
+    return res.status(201).json(project);
   }
 
   async delete(req, res) {
