@@ -12,7 +12,7 @@
 <a id="tecnologia"></a>
 ## 🚀 Tecnologias
 
-Esse projeto foi desenvolvido utilizando as seguintes tecnologia:
+Esse projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 - [Node.js](https://nodejs.org/en/)
 - [Express](https://expressjs.com/pt-br/)
